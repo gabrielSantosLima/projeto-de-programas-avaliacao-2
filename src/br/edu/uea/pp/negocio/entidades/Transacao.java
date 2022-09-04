@@ -1,4 +1,4 @@
-package br.edu.uea.pp.model.entities;
+package br.edu.uea.pp.negocio.entidades;
 
 public class Transacao {
 	private String operacao;
