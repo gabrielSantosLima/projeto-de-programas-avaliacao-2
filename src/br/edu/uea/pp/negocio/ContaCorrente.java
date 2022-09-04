@@ -64,4 +64,12 @@ public class ContaCorrente {
 		DateFormat formatadorDeData = DateFormat.getDateInstance(DateFormat.DEFAULT, local);
 		return formatadorDeData.format(new Date());
 	}
+	
+	public void depositar(float v) // Questão 1 - d
+	{
+		this.saldo += v;
+		String dataAtual = getDataAtualComoTexto();
+		Transacao transacao = new Transacao("depósito", v, dataAtual);
+		registrarTransacao(transacao);
+	}
 }
