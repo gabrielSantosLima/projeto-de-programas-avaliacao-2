@@ -1,4 +1,4 @@
-package br.edu.uea.pp.negocio.entidades;
+package br.edu.uea.pp.negocio;
 
 public class ContaCorrente {
 	private float saldo;
