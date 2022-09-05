@@ -34,8 +34,12 @@ public class ContaCorrente {
 		this.saldo = saldo;
 	}
 	
-	public void depositar() {
-		// TODO
+	public void depositar(float v) // Questão 1 - d
+	{
+		this.saldo += v;
+		String dataAtual = getDataAtualComoTexto();
+		Transacao transacao = new Transacao("depósito", v, dataAtual);
+		registrarTransacao(transacao);
 	}
 	
 	public boolean sacar(float v) { // Questão 1 - e)
@@ -65,11 +69,4 @@ public class ContaCorrente {
 		return formatadorDeData.format(new Date());
 	}
 	
-	public void depositar(float v) // Questão 1 - d
-	{
-		this.saldo += v;
-		String dataAtual = getDataAtualComoTexto();
-		Transacao transacao = new Transacao("depósito", v, dataAtual);
-		registrarTransacao(transacao);
-	}
 }
