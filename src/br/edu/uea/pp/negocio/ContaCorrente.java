@@ -1,6 +1,7 @@
 package br.edu.uea.pp.negocio;
 
 import java.text.DateFormat;
+import java.lang.Math;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
@@ -39,7 +40,7 @@ public class ContaCorrente {
 	
 	public void depositar(float v) // Questão 1 - d
 	{
-		this.saldo += v;
+		this.saldo += Math.abs(v);
 		String dataAtual = getDataAtualComoTexto();
 		Transacao transacao = new Transacao(this.getSaldo(),"depósito", v, dataAtual);
 		registrarTransacao(transacao);
@@ -79,4 +80,5 @@ public class ContaCorrente {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
+
 }

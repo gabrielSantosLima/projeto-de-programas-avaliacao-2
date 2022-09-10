@@ -2,6 +2,7 @@ package br.edu.uea.pp.iu;
 
 import java.util.ArrayList;
 
+import br.edu.uea.pp.negocio.Cliente;
 import br.edu.uea.pp.negocio.ContaCorrente;
 import br.edu.uea.pp.negocio.Transacao;
 import br.edu.uea.pp.negocio.Cliente;
@@ -18,7 +19,7 @@ public class CaixaEletronico { // Questão 2 - a)
 		ContaCorrente contaCorrente = new ContaCorrente(123456789, 001, cliente1); // Questão 2 - b
 		contaCorrente.depositar(1200); // Questão  2 - c
 		contaCorrente.sacar(200); // Questão 2 - d
-		
+
 		
 		ArrayList<Transacao> extrato = contaCorrente.getExtrato(); // Questão 2 - f)
 		System.out.println("======= CONTA CORRENTE =======");
@@ -26,6 +27,7 @@ public class CaixaEletronico { // Questão 2 - a)
 		+ "\n| NÚMERO DA CONTA: " + contaCorrente.getNumeroConta() 
 		+ "\n| SALDO ATUAL: R$" + contaCorrente.getSaldo()
 		+ "\n| CLIENTE: " + contaCorrente.getCliente().getNome()+ "\n");
+
 		if(extrato.isEmpty()) {
 			System.out.println("Nenhuma transação realizada no momento.");
 		}else {
@@ -36,7 +38,7 @@ public class CaixaEletronico { // Questão 2 - a)
 						"] Transação realizada no dia " + 
 						transacao.getDataHora() + 
 						" no valor de " + 
-						CaixaEletronico.formatarDinheiro(transacao.getValor())
+						CaixaEletronico.formatarDinheiro(Math.abs(transacao.getValor()))
 				);
 			}
 		}
