@@ -9,7 +9,7 @@
 - Gabriel Dos Santos Lima
 - Melinne Diniz de Oliveira
 
-| Curso: Sistemas de informação
+> Curso: Sistemas de informação
 
 ## Atividades
 
@@ -17,4 +17,4 @@
 
 2. a) 🟢 b) 🟢 c) 🟢 d) 🟢 e) 🟢 f) 🟢
 
-| 🟢 Finalizado | 🟡 Em progresso | 🔴 A fazer
+> 🟢 Finalizado | 🟡 Em progresso | 🔴 A fazer
