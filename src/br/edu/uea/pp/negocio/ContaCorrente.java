@@ -11,8 +11,9 @@ public class ContaCorrente {
 	private int numeroAgencia;
 	private ArrayList<Transacao> transacoes; // Questão 1 - a)
 	
-	public ContaCorrente(int numeroConta, int numeroAgencia) {
-		this.saldo = 0.0f; // Questão 1 - b)
+
+	public ContaCorrente(int numeroConta, int numeroAgencia, Cliente cliente) {
+		this.saldo = 0.0f; // Questão 1 - b) 
 		this.numeroConta = numeroConta;
 		this.numeroAgencia = numeroAgencia;
 		this.transacoes = new ArrayList<>();
@@ -34,7 +35,13 @@ public class ContaCorrente {
 		this.saldo = saldo;
 	}
 	
-	public void depositar(float v) // Questão 1 - d
+	/* Questão 1 - d)
+	 * 
+	 * No método depositar, para evitar que desconte ao invés 
+	 * de adicionar, utilizamos o "módulo" do Java da biblioteca Math.
+	 * */
+	
+	public void depositar(float v) 
 	{
 		this.saldo += v;
 		String dataAtual = getDataAtualComoTexto();
@@ -54,7 +61,13 @@ public class ContaCorrente {
 		return false;
 	}
 	
-	public ArrayList<Transacao> getExtrato() { // Questão 1 - f)
+	/* Questão 1 - f)
+	 * 
+	 * A função extrato retorna todos os itens da lista de transações realizadas
+	 * 
+	 */
+	
+	public ArrayList<Transacao> getExtrato() {
 		return this.transacoes;
 	}
 	
