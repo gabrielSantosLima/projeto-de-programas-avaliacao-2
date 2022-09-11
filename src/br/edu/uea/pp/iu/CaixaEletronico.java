@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import br.edu.uea.pp.negocio.Cliente;
 import br.edu.uea.pp.negocio.ContaCorrente;
 import br.edu.uea.pp.negocio.Transacao;
-import br.edu.uea.pp.negocio.Cliente;
 
 
 public class CaixaEletronico { // Questão 2 - a)
 	
+	// Método estático auxiliar para formatar um valor decimal para o formato monetário em reais.
 	private static String formatarDinheiro(float valor) {
 		return String.format("R$%.2f", valor);
 	}

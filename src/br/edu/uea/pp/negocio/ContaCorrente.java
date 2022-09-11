@@ -15,7 +15,6 @@ public class ContaCorrente {
 
 	public ContaCorrente(int numeroConta, int numeroAgencia, Cliente cliente) {
 		this.saldo = 0.0f; // Questão 1 - b) 
-
 		this.numeroConta = numeroConta;
 		this.numeroAgencia = numeroAgencia;
 		this.transacoes = new ArrayList<>();
@@ -43,16 +42,20 @@ public class ContaCorrente {
 	 * No método depositar, para evitar que desconte ao invés 
 	 * de adicionar, utilizamos o "módulo" do Java da biblioteca Math.
 	 * */
-	
 	public void depositar(float v) 
 	{
 		this.saldo += Math.abs(v);
 		String dataAtual = getDataAtualComoTexto();
-		Transacao transacao = new Transacao(this.getSaldo(),"depósito", v, dataAtual);
+		Transacao transacao = new Transacao(this.getSaldo(),"Depósito", v, dataAtual);
 		registrarTransacao(transacao);
 	}
 	
-	public boolean sacar(float v) { // Questão 1 - e)
+	/* Questão 1 - e)
+	 * 
+	 * No método sacar, é verificado se há a possilidade de saque com o valor passado por parâmetro.
+	 * Caso seja possível, o valor é descontado do saldo atual e uma transação é registrada.
+	 * */
+	public boolean sacar(float v) {
 		float saldoAtual = getSaldo();
 		if(saldoAtual - v >= 0.0f) {
 			setSaldo(saldoAtual - v);
@@ -66,19 +69,23 @@ public class ContaCorrente {
 	
 	/* Questão 1 - f)
 	 * 
-	 * A função extrato retorna todos os itens da lista de transações realizadas
-	 * 
+	 * A função extrato retorna todos os itens da lista de transações realizadas.
 	 */
-	
 	public ArrayList<Transacao> getExtrato() {
 		return this.transacoes;
 	}
 	
-	private void registrarTransacao(Transacao transacao) { // Questão 1 - c)
+	/* Questão 1 - c)
+	 * 
+	 * No método registrarTansacao, adicionamos a instância de uma nova transação 
+	 * a lista de transações da conta corrente atual.
+	 * */
+	private void registrarTransacao(Transacao transacao) { 
 		ArrayList<Transacao> transacoesAtuais = getExtrato();
 		transacoesAtuais.add(transacao);
 	}
 	
+	// Método auxiliar que retorna data no formato padrão pt-BR.
 	private String getDataAtualComoTexto() {
 		Locale local = new Locale("pt", "BR");
 		DateFormat formatadorDeData = DateFormat.getDateInstance(DateFormat.DEFAULT, local);
