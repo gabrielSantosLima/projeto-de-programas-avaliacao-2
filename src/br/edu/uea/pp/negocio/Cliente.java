@@ -4,13 +4,11 @@ public class Cliente {
 	private String nome;
 	private String rg;
 	private String endereco;
-	private ContaCorrente contaCorrente;
 	
-	public Cliente(String nome, String rg, String endereco, ContaCorrente contaCorrente) {
+	public Cliente(String nome, String rg, String endereco) {
 		this.nome = nome;
 		this.rg = rg;
 		this.endereco = endereco;
-		this.contaCorrente = contaCorrente;
 	}
 	
 	public String getNome() {
@@ -37,11 +35,4 @@ public class Cliente {
 		this.endereco = endereco;
 	}
 
-	public ContaCorrente getContaCorrente() {
-		return contaCorrente;
-	}
-
-	public void setContaCorrente(ContaCorrente contaCorrente) {
-		this.contaCorrente = contaCorrente;
-	}
 }

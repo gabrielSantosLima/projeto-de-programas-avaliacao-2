@@ -1,6 +1,7 @@
 package br.edu.uea.pp.negocio;
 
 import java.text.DateFormat;
+import java.lang.Math;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
@@ -10,13 +11,15 @@ public class ContaCorrente {
 	private int numeroConta;
 	private int numeroAgencia;
 	private ArrayList<Transacao> transacoes; // Questão 1 - a)
-	
+	private Cliente cliente;
 
 	public ContaCorrente(int numeroConta, int numeroAgencia, Cliente cliente) {
 		this.saldo = 0.0f; // Questão 1 - b) 
+
 		this.numeroConta = numeroConta;
 		this.numeroAgencia = numeroAgencia;
 		this.transacoes = new ArrayList<>();
+		this.setCliente(cliente);
 	}
 
 	public float getSaldo() { // Questão 1 - g)
@@ -43,9 +46,9 @@ public class ContaCorrente {
 	
 	public void depositar(float v) 
 	{
-		this.saldo += v;
+		this.saldo += Math.abs(v);
 		String dataAtual = getDataAtualComoTexto();
-		Transacao transacao = new Transacao("depósito", v, dataAtual);
+		Transacao transacao = new Transacao(this.getSaldo(),"depósito", v, dataAtual);
 		registrarTransacao(transacao);
 	}
 	
@@ -54,7 +57,7 @@ public class ContaCorrente {
 		if(saldoAtual - v >= 0.0f) {
 			setSaldo(saldoAtual - v);
 			String dataAtual = getDataAtualComoTexto();
-			Transacao transacaoRealizada = new Transacao("Saque", v, dataAtual);
+			Transacao transacaoRealizada = new Transacao(this.getSaldo(), "Saque", v, dataAtual);
 			registrarTransacao(transacaoRealizada);
 			return true;
 		}
@@ -81,5 +84,13 @@ public class ContaCorrente {
 		DateFormat formatadorDeData = DateFormat.getDateInstance(DateFormat.DEFAULT, local);
 		return formatadorDeData.format(new Date());
 	}
-	
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+
 }

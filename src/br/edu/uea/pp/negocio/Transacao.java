@@ -4,8 +4,10 @@ public class Transacao {
 	private String operacao;
 	private float valor;
 	private String dataHora;
+	private float saldo;
 	
-	public Transacao(String operacao, float valor, String dataHora) {
+	public Transacao(float saldo, String operacao, float valor, String dataHora) {
+		this.saldo = saldo;
 		this.operacao = operacao;
 		this.valor = valor;
 		this.dataHora = dataHora;
@@ -33,5 +35,13 @@ public class Transacao {
 
 	public void setDataHora(String dataHora) {
 		this.dataHora = dataHora;
+	}
+
+	public float getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(float saldo) {
+		this.saldo = saldo;
 	}
 }
